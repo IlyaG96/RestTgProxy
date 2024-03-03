@@ -1,8 +1,8 @@
 from aiohttp import web
 
-from constants import LOGGING_SERVICE
-from routes.routes import setup_routes
-from services.logging_service import LoggingService
+from src.constants import LOGGING_SERVICE
+from src.routes.routes import setup_routes
+from src.services.logging_service import LoggingService
 
 
 async def init_app():

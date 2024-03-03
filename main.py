@@ -1,5 +1,5 @@
 from src.application import init_app
-from src.app_config import Config
+from app_config import Config
 from aiohttp import web
 import asyncio
 
