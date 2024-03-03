@@ -7,5 +7,6 @@ from src.handlers.telegram_handler import telegram_incoming_handler
 def setup_routes(app: web.Application):
     app.router.add_post('/tm', telegram_incoming_handler)
     app.router.add_post('/cm', cm_incoming_handler)
+    app.router.add_get('/cm', cm_incoming_handler)
     app.router.add_post('/log', debug_log_handler)
     return app
