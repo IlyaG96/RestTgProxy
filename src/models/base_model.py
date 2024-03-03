@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 
-class ErrorResponse:
+class ErrorResponse(BaseModel):
     success: bool = False
