@@ -6,5 +6,7 @@ COPY requirements.txt /usr/src/rest_tg/
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
+EXPOSE 10000
+
 ENTRYPOINT ["python"]
 CMD ["main.py"]
