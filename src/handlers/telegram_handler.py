@@ -14,3 +14,9 @@ async def telegram_incoming_handler(request: Request, logging_service: LoggingSe
 
     await logging_service.log(create_message(body).model_dump())
     return web.json_response({"hello": "tm"})
+
+
+@with_global_logging_service
+async def telegram_manual_handler(request: dict, logging_service: LoggingService):
+    #is message malid?
+    await logging_service.log(create_message(request).model_dump())
