@@ -1,0 +1,10 @@
+{
+  "action": "first_start",
+  "chat_id": "111111111111",
+  "data": {
+    "tg_nickmname": "@tg_nickmname",
+    "tg_username": "User User",
+    "mobile_phone": "8-888-888-88-88",
+    "chat_type": "[chatgroup]"
+  }
+}

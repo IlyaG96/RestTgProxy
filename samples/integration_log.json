@@ -1,0 +1,13 @@
+{
+    "action":"first_start",
+    "data": {
+        "direction": "out",
+        "integrationlogid": "default",
+        "integrationlogtime": "2024-01-18T05:46:03.203",
+        "message": "{\"chatid\":\"1111111111111111\",\"roleid\":\"5\",\"sellerid\":\"777\",\"userid\":\"DEFAULT\",\"username\":\"wasya\"}",
+        "operation": "first_start"
+    },
+    "operation": "create",
+    "schema": "p2p",
+    "table": "integrationlog"
+}

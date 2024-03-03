@@ -1,0 +1,1 @@
+LOGGING_SERVICE = "logging_service"
