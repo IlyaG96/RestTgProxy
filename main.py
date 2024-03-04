@@ -1,9 +1,8 @@
-from src.application import init_app
+from src.rest_service.application import init_app
 from app_config import get_app_config
 from aiohttp import web
 import asyncio
-from src.logger.logger import logger
-
+from rest_service.logger.logger import logger
 
 
 async def main():

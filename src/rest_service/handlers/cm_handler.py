@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from src.logger import logger
+from rest_service.logger import logger
 
 
 async def cm_incoming_handler(request):

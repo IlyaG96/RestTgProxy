@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from src.routes.routes import setup_routes
+from rest_service.routes.routes import setup_routes
 
 
 async def init_app():
