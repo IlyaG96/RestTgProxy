@@ -23,22 +23,18 @@ $ pip install -r requirements.txt
 ### Использование
 Задайте переменные окружения любым удобным способом:
 ```bash
-DEBUG=""
-HOST=""
-PORT=""
-INTEGRATION_LOG_ON=""
-INTEGRATION_LOG_HOST=""
-INTEGRATION_LOG_ENDPOINT=""
-INTEGRATION_LOG_PORT=""
+DEBUG=
+HOST=
+PORT=
+INTEGRATION_LOG_ON=
+INTEGRATION_LOG_URL=
 ```
 
- -DEBUG - вкл\откл режим отладки - WIP  
- -HOST - хост сервиса
- -PORT - порт основного сервиса  
- -INTEGRATION_LOG_ON - вкл\откл отправку в интеграционный лог  
- -INTEGRATION_LOG_HOST - хост интеграционного лога 
- -INTEGRATION_LOG_ENDPOINT - эндпоинт интеграционного лога 
- -INTEGRATION_LOG_PORT - порт интеграционного лога 
+ -DEBUG: Any | None - вкл\откл режим отладки - WIP   
+ -HOST: str - хост сервиса
+ -PORT: int - порт основного сервиса  
+ -INTEGRATION_LOG_ON: Any | None - вкл\откл отправку в интеграционный лог  
+ -INTEGRATION_LOG_URL - uri интеграционного лога 
 
 #### Простейший способ запустить бота:
 ```bash
