@@ -1,18 +1,19 @@
 from src.clients.loggigng_client import LoggingClient
 
-from app_config import Config
+from app_config import get_app_config
 
 logging_service = None
+app_config = get_app_config()
 
 
 class LoggingService:
     def __init__(self, logging_client: LoggingClient = None):
         self.logging_client = logging_client or LoggingClient(
-            base_url=f'{Config.INTEGRATION_LOG_HOST}:{Config.INTEGRATION_LOG_PORT}{Config.INTEGRATION_LOG_ENDPOINT}'
+            base_url=f'{app_config.INTEGRATION_LOG_URI}'
         )
 
     async def log(self, message):
-        if not Config.INTEGRATION_LOG_ON:
+        if not app_config.INTEGRATION_LOG_ON:
             return
         await self.logging_client.send_log(message)
 
