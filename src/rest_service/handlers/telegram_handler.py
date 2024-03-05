@@ -1,7 +1,7 @@
 from aiohttp import web
 from aiohttp.web import Request
 
-from rest_service.logger import logger
+from logger import logger
 from rest_service.services.logging_service import LoggingService
 from rest_service.models.integration_log_message import create_message
 from rest_service.utils import with_global_logging_service
