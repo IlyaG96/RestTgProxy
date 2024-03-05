@@ -28,6 +28,9 @@ HOST=
 PORT=
 INTEGRATION_LOG_ON=
 INTEGRATION_LOG_URL=
+BOT_TOKEN=
+API_ID=
+API_HASH=
 ```
 
  -DEBUG: Any | None - вкл\откл режим отладки - WIP   
@@ -35,13 +38,16 @@ INTEGRATION_LOG_URL=
  -PORT: int - порт основного сервиса  
  -INTEGRATION_LOG_ON: Any | None - вкл\откл отправку в интеграционный лог  
  -INTEGRATION_LOG_URL - uri интеграционного лога 
+ -BOT_TOKEN - токен телеграм-бота 
+ -API_ID=https://core.telegram.org/api  получать здесь  
+ -API_HASH=https://core.telegram.org/api  получать здесь
 
 #### Простейший способ запустить бота:
 ```bash
 $ python main.py
 ```
 
-### Сборка и запуск с использованием Docker
+### Сборка и запуск с использованием Docker WIP
 
 - Соберите контейнер и запустите при помощи docker-compose
 ```shell
