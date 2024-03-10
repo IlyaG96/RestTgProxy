@@ -15,5 +15,6 @@ class LoggingClient:
                 print(f"Sending log: {response.reason}")
         except Exception as e:
             pass
+
     async def close(self):
         await self.session.close()

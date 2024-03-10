@@ -1,5 +1,6 @@
-from src.rest_service.application import init_app
-from src.telegram_bot.application import init_bot
+from logger import logger
+from src.rest_service.application import create_app
+from src.telegram_bot.application import create_bot
 from app_config import get_app_config
 import asyncio
 
@@ -7,9 +8,16 @@ app_config = get_app_config()
 
 
 async def main():
+    bot = await create_bot(app_config)
+    app = await create_app(app_config)
+
+    await app.set_bot(bot)
+
     await asyncio.gather(
-        init_bot(app_config),
-        init_app(app_config),
+        bot.run(),
+        app.run(),
     )
+    logger.info(f"SUCCESS! Both applications are started")
+
 
 asyncio.run(main())
