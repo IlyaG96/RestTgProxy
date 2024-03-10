@@ -7,3 +7,4 @@ lib
 lib64
 pyvenv.cfg
 tg_bot.session
+tg_bot.session-journal
