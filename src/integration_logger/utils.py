@@ -1,5 +1,5 @@
 import functools
-from rest_service.services.logging_service import get_or_create_logging_service
+from integration_logger.services.logging_service import get_or_create_logging_service
 
 
 def with_global_logging_service(func):

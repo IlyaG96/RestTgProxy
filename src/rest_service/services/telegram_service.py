@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Any
-from telethon import TelegramClient, types
+from telethon import TelegramClient
 from telegram_bot.application import ConcreteTelegramBot
 
 

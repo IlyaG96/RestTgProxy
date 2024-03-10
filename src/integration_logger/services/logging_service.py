@@ -1,4 +1,4 @@
-from rest_service.clients.loggigng_client import LoggingClient
+from integration_logger.clients.loggigng_client import LoggingClient
 
 from app_config import get_app_config
 

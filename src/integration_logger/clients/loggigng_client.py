@@ -1,6 +1,8 @@
 import aiohttp
 import json
 
+from logger import logger
+
 
 class LoggingClient:
     def __init__(self, base_url):
@@ -10,11 +12,13 @@ class LoggingClient:
     async def send_log(self, message):
         try:
             async with self.session.post(f"{self.base_url}", data=json.dumps({"message": message})) as response:
+                logger.info(f"Sending integration log: {response.reason} with data: {message}")
                 if not response.ok != 200:
-                    print(f"Error sending log: {response.reason}")
-                print(f"Sending log: {response.reason}")
+                    logger.error(f"ERROR sending log: {response.reason}, status: {response.status}")
+                logger.info(f"SUCCESS Sending integration log: {response.reason}")
+                await self.session.close() # TODO fixme?
         except Exception as e:
-            pass
+            logger.error(f"ERROR during sending integration log: {e.__str__()}")
 
     async def close(self):
         await self.session.close()
