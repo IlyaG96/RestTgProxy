@@ -4,13 +4,14 @@ from rest_service.routes.routes import setup_routes
 import asyncio
 
 from logger.logger import logger
-from telegram_bot.application import _TelegramBot
+from rest_service.services.telegram_service import ConcreteTelegramService
+from telegram_bot.application import ConcreteTelegramBot
 
 
 class _WebApplication:
     app: web.Application
     app_config: BaseSettings
-    bot: _TelegramBot
+    bot_service: ConcreteTelegramService
     
     @classmethod
     async def create(cls, app_config: BaseSettings):
@@ -20,19 +21,18 @@ class _WebApplication:
         setup_routes(self.app)
         return self
 
-    async def set_bot(self, bot: _TelegramBot):
-        self.bot = bot
+    async def set_bot(self, bot: ConcreteTelegramBot):
+        self.bot_service = ConcreteTelegramService(bot)
+        self.app.bot = self.bot_service
 
     async def run(self):
-        if self.app is not None:
-            runner = web.AppRunner(self.app)
-            await runner.setup()
-            site = web.TCPSite(runner, self.app_config.HOST, self.app_config.PORT)
-            await site.start()
-            logger.info(f"Started server at {self.app_config.HOST}:{self.app_config.PORT}")
-            await asyncio.Event().wait()
-
-        raise Exception("There is no app object!")
+        runner = web.AppRunner(self.app)
+        await runner.setup()
+        site = web.TCPSite(runner, self.app_config.HOST, self.app_config.PORT)
+        await site.start()
+        logger.info(f"Started server at {self.app_config.HOST}:{self.app_config.PORT}")
+        while True:
+            await asyncio.sleep(0.1)
 
     @staticmethod
     async def __init_app():

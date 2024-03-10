@@ -1,4 +1,3 @@
-from logger import logger
 from src.rest_service.application import create_app
 from src.telegram_bot.application import create_bot
 from app_config import get_app_config
@@ -17,7 +16,5 @@ async def main():
         bot.run(),
         app.run(),
     )
-    logger.info(f"SUCCESS! Both applications are started")
-
 
 asyncio.run(main())

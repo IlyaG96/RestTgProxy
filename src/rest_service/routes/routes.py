@@ -1,5 +1,5 @@
 from aiohttp import web
-from rest_service.handlers.cm_handler import service_model_incoming_handler
+from rest_service.handlers.model_service_handler import service_model_incoming_handler
 from rest_service.handlers.log_handler import debug_log_handler
 from rest_service.handlers.telegram_handler import telegram_incoming_handler
 
