@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import Any
-from telethon import TelegramClient
+from telethon import TelegramClient, types
 from telegram_bot.application import ConcreteTelegramBot
 
 
 class TelegramServiceInterface(ABC):
     @abstractmethod
     def send(self, message: Any):
-        """Отправляет сообщение тому человеку, с которым открыт диалог"""
+        """Ожидает правильной реализации"""
         raise NotImplementedError
 
     @abstractmethod
@@ -34,12 +34,7 @@ class ConcreteTelegramService(TelegramServiceInterface, ABC):
         bot: TelegramClient = self._get_bot()
         if not self.__validate_message(message):
             raise BaseException
-        async with bot:
-            entity = await bot.get_entity("")  #todo fixme
-        await bot.send_message(
-            entity=entity.id,
-            message=str(message)
-        )
+        await bot.send_message("app_config.MYUID: int - user_id", message)
 
     def __validate_message(self, message: Any):
         return True

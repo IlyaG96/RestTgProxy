@@ -40,7 +40,7 @@ class ConcreteTelegramBot(TelegramBotInterface, ABC):
     async def __init_bot(app_config: pydantic_settings.BaseSettings) -> TelegramClient:
         bot: Optional[TelegramClient] = None
         try:
-            bot: TelegramClient = await TelegramClient(MemorySession(), app_config.API_ID, app_config.API_HASH).start(
+            bot: TelegramClient = await TelegramClient('tg_bot', app_config.API_ID, app_config.API_HASH).start(
                 bot_token=app_config.BOT_TOKEN
             )
             logger.info(f"Bot object init success")
