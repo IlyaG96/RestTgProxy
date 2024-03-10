@@ -1,9 +1,13 @@
-from aiohttp import web
-
 from logger import logger
+from aiohttp.web import Request
+from src.rest_service.services import telegram_service
 
 
-async def cm_incoming_handler(request):
-    logger.info(f"Hello from cm handler")
+async def service_model_incoming_handler(request: Request):
+    logger.info(f"Received data from model service: {request.text()}")
 
-    return web.json_response({"hello": "cm"})
+    await telegram_service.send()
+
+
+
+
