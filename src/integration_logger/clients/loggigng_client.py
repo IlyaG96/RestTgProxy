@@ -16,9 +16,11 @@ class LoggingClient:
                 if not response.ok != 200:
                     logger.error(f"ERROR sending log: {response.reason}, status: {response.status}")
                 logger.info(f"SUCCESS Sending integration log: {response.reason}")
-                await self.session.close() # TODO fixme?
+
         except Exception as e:
             logger.error(f"ERROR during sending integration log: {e.__str__()}")
+        finally:
+            await self.close()
 
     async def close(self):
         await self.session.close()
